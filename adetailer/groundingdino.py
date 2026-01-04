@@ -24,6 +24,7 @@ def groundingdino_predict(
     """
     mapping = {
         "groundingdino": "IDEA-Research/grounding-dino-tiny",
+        "groundingdino_base": "IDEA-Research/grounding-dino-base",
     }
     model_id = mapping.get(inp_model_id, inp_model_id)
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -94,8 +95,9 @@ def groundingdino_predict(
     # Sort by area (largest first) and keep all detections
     detections.sort(key=lambda d: d["area"], reverse=True)
     
-    # Extract bboxes in sorted order
+    # Extract bboxes and confidences in sorted order
     all_bboxes = [d["bbox"] for d in detections]
+    all_confidences = [d["score"] for d in detections]
 
     # Create masks from bounding boxes
     masks = create_mask_from_bbox(all_bboxes, image.size)
@@ -109,5 +111,6 @@ def groundingdino_predict(
     return PredictOutput(
         bboxes=all_bboxes,
         masks=masks,
-        preview=preview
+        preview=preview,
+        confidences=all_confidences
     )

@@ -109,6 +109,7 @@ def get_models(
 
     models.update({
         "groundingdino": "IDEA-Research/grounding-dino-tiny",
+        "groundingdino_base": "IDEA-Research/grounding-dino-base",
     })
 
     models.update({

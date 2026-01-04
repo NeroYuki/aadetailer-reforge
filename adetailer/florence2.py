@@ -112,7 +112,7 @@ def florence2_predict(
     image: Image.Image,
     task: str = "<CAPTION_TO_PHRASE_GROUNDING>",
     text_input: str | None = None,
-    confidence: float = 0.3,
+    confidence: float = 0.3,  # unused
 ) -> PredictOutput:
     """
     Florence2 detection workflow for both grounding and segmentation.
@@ -300,8 +300,12 @@ def florence2_predict(
     
     print(f"[+] ADetailer: Florence2 detected {len(bboxes)} objects")
     
+    # Florence2 doesn't provide confidence scores, so use 1.0 for all detections
+    confidences = [1.0] * len(bboxes)
+    
     return PredictOutput(
         bboxes=bboxes,
         masks=masks if masks else create_mask_from_bbox(bboxes, image.size),
-        preview=preview
+        preview=preview,
+        confidences=confidences
     )
