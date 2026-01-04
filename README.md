@@ -11,6 +11,8 @@ Additional model
 
 Detector model will be unloaded once adetailer is done with its work
 
+Tested with neoforge build on Dec 13 2025, should also be compatible with reforge and original forge
+
 > **Notes:**
 >
 > Regarding GroundingDINO, please make sure object prompt is all in lowercase and separated by period. i.e. `eyes. hair.`
