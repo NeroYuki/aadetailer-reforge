@@ -1,3 +1,25 @@
+# Fork info
+Vibe-coded integration of GroundingDINO and Florence2 (Open Vocab. Detector) for ADetailer, on top of Anzch improvement on the the original ADetailer
+
+Additional model
+- IDEA-Research/grounding-dino-tiny (groundingdino)
+- IDEA-Research/grounding-dino-base (groundingdino_base, recommended)
+- microsoft/Florence-2-base (Florence-2-base)
+- microsoft/Florence-2-base-ft (Florence-2-base-ft)
+- microsoft/Florence-2-large (Florence-2-large)
+- microsoft/Florence-2-large-ft (Florence-2-large-ft, recommneded)
+
+Detector model will be unloaded once adetailer is done with its work
+
+> **Notes:**
+>
+> Regarding GroundingDINO, please make sure object prompt is all in lowercase and separated by period. i.e. `eyes. hair.`
+> 
+> Regarding Florence2, <OPEN_VOCABULARY_DETECTION> is the straight forward option, <CAPTION_TO_PHRASE_GROUNDING> will turn phrase to individual objects and detect those instead, <REFERRING_EXPRESSION_SEGMENTATION> attempt to create a segment polygon to wrap around the detected object
+
+TODO:
+- Make the segmented polygon an actual mask
+
 # AADetailer-ReForge
 A small fork with new features and modifications, verified to work with up-to-date ReForge only. (It can potentially work with other webUIs, but i am not promising to maintain them for anything other than ReForge)  
 
