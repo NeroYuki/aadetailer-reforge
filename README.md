@@ -1,5 +1,5 @@
 # Fork info
-Vibe-coded integration of GroundingDINO and Florence2 (Open Vocab. Detector) for ADetailer, on top of Anzch improvement on the the original ADetailer
+Vibe-coded integration of GroundingDINO and Florence2 (Open Vocab. Detector) for ADetailer, on top of Anzhc improvement on the the original ADetailer
 
 Additional model
 - IDEA-Research/grounding-dino-tiny (groundingdino)
